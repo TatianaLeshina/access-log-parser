@@ -1,5 +1,26 @@
+import java.io.File;
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Случайное число от 0 до 1: " + Math.random());
+        int i=0;
+        while (1==1) {
+            System.out.println("Укажите путь к файлу: ");
+            String path = new Scanner(System.in).nextLine();
+            File file = new File(path);
+            boolean fileExists = file.exists();
+            boolean isDirectory = file.isDirectory();
+            if (isDirectory) {
+                System.out.println("Указан путь к папке");
+                continue;
+            }
+            if (!fileExists) {
+                System.out.println("Файл не существует");
+            } else {
+                System.out.println("Путь указан верно");
+                i++;
+                System.out.println("Это файл номер " + i);
+            }
+        }
     }
 }
